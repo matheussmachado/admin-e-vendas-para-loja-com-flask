@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: flask-shell-ipython
+Version: 0.4.1
+Summary: Replace default `flask shell` command by similar command running IPython.
+Home-page: http://github.com/ei-grad/flask-shell-ipython
+Author: Andrew Grigorev
+Author-email: andrew@ei-grad.ru
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Framework :: Flask
+Classifier: Framework :: IPython
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: flask (>=1.0)
+Requires-Dist: click
+Requires-Dist: IPython (>=5.0.0)
+
+# flask-shell-ipython
+
+Replace default `flask shell` command by similar command running IPython.
+
+## Usage
+
+Just install:
+
+    pip install flask-shell-ipython
+
+And here are you go:
+
+    > flask shell
+    Python 3.5.1 (default, Mar  3 2016, 09:29:07)
+    [GCC 5.3.0] on linux
+    IPython: 5.0.0
+    App: discharges [debug]
+    Instance: /home/ei-grad/repos/discharges/instance
+
+    In [1]:
+
+
