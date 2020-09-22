@@ -1,0 +1,29 @@
+Inicialmente:
+
+CRUD para administrar um petshop
+
+.O que tem de produto em petshop?
+
+- ração
+- remédio
+- higiene
+- coisa pra transporte
+- coleira
+- brinquedos
+- etc
+
+
+.O que tem em cada produto?
+-- nome
+-- preço
+-- quantidade
+-- codigo
+
+
+-> Criar um Admin:
+- CRUD de produtos
+- cadastro de operadores
+
+-> Criar um terminal para operadores:
+- registrar vendas
+-- gerar logs das vendas
