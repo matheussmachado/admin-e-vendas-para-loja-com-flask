@@ -1,1 +1,18 @@
-2020/09/22 13:03:15 Micro started
+2020/09/22 17:20:51 Micro started
+2020/09/22 17:20:53 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc00069c9f0
+2020/09/22 17:20:54 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc0008c2cc0
+2020/09/22 17:20:55 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc0008c33b0
+2020/09/22 17:20:55 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc0008c3a10
+2020/09/22 17:20:55 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc0009f4090
+2020/09/22 17:20:57 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc0009f57d0
+2020/09/22 17:20:57 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc000a000f0
+2020/09/22 17:20:59 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc000a00fc0
+2020/09/22 17:20:59 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc000a14240
+2020/09/22 17:21:00 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc000a01a10
+2020/09/22 17:21:00 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc000a1e480
+2020/09/22 17:21:09 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc000a1e600
+2020/09/22 17:21:09 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc000a1ec60
+2020/09/22 17:21:09 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc000a1f2c0
+2020/09/22 17:21:09 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc000a1f920
+2020/09/22 17:21:13 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc000a143f0
+2020/09/22 17:21:13 snippets-plugin -> function onBeforeTextEvent(ev) = userdata: 0xc000a14450
