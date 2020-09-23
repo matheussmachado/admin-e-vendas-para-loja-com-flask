@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}Venda{% endblock %}
+{% block content %}
+<style>
+	.tableFixHead          { overflow-y: auto; height: 300px; }
+	.tableFixHead thead th { position: sticky; top: 0; }
+
+	/* Just common table stuff. Really. */
+	table  { border-collapse: collapse; width: 100%; }
+	th, td { padding: 8px 16px; }
+	th     { background:#eee; }
+</style>
+{% macro formata_moeda(valor) -%}
+	{{ "{:.2f}".format(valor)|replace(".", ",") }}
+{%- endmacro %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-1">
+				<h4>Código: </h4>
+				<h4>Qtd.: </h4>
+			</div>
+			<div class="col-md-3">
+				<form method="post">
+					{{ registrar_form.csrf }}
+					{{ registrar_form.registrar_codigo(autofocus=true) }}
+					<br>{{ registrar_form.quantidade(style="width:70px;", value=1) }}
+					<input type="submit" value="enviar" style="width:135px;">
+				</form>
+			</div>
+			<div class="col-md-8">
+				<div class="tableFixHead">
+					<table>
+					    <thead>
+					        <tr>
+					            <th>Código</th>
+					            <th>Nome</th>
+					            <th>Qtd.</th>
+					            <th>Preço R$</th>
+					        </tr>
+					    </thead>
+					    <tbody>
+					    	{% for item in itens %}
+						        <tr>
+						        	<td>
+						        		{{ item.codigo }}
+						        	</td>
+
+						        	<td>
+						        		{{ item.nome }}
+						        	</td>
+						        	
+						        	<td>
+						        		{{ item.quantidade_requisitada }}
+						        	</td>
+						        	
+						        	<td>
+						        		{{ formata_moeda(item.valor) }}
+						        	</td>
+						        	
+						        </tr>
+					        {% endfor %}
+					    </tbody>
+					</table>
+				</div>
+				<a href="#" class="btn btn-warning">Remover Item</a>
+			</div>
+
+		</div>
+		<div class="row">
+
+			<div class="col-md-4">
+				<br>
+				<h3>SUBTOTAL: R${{ formata_moeda(subtotal) }}</h3>
+				<a href="#" class="btn btn-success">Concluir</a>
+				<a href="#" class="btn btn-default">Cancelar</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

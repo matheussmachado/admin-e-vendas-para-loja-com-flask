@@ -7,6 +7,7 @@ from app.ext.site import home
 from app.ext.site import vendedor
 from app.ext.site import login
 
+
 def create_minimal_app():
     app = Flask(__name__)
     return app

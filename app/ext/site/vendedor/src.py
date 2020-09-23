@@ -1,10 +1,3 @@
-# uncompyle6 version 3.7.4
-# Python bytecode 3.8 (3413)
-# Decompiled from: Python 3.8.2 (default, Jul 16 2020, 14:00:26) 
-# [GCC 9.3.0]
-# Embedded file name: /home/mm/Documentos/projetos/projeto-pet-shop/app/ext/site/vendedor/src.py
-# Compiled at: 2020-09-21 22:30:20
-# Size of source mod 2**32: 5256 bytes
 from abc import ABC, abstractmethod
 from datetime import datetime
 from wtforms import IntegerField, Form, PasswordField, SubmitField
@@ -158,4 +151,3 @@ class RemoverItemForm(Form):
 class CancelarVendaForm(Form):
     cancel_senha = PasswordField('Código de Segurança',
       validators=[DataRequired()])
-# okay decompiling app/ext/site/vendedor/__pycache__/src.cpython-38.pyc
