@@ -43,15 +43,14 @@
         <!-- navbar content -->
         <div class="collapse navbar-collapse" id="admin-navbar-collapse">
         <ul class="nav navbar-nav">
-        {% block ul %}    
-            
-        
-        
+        {% block ul %}                                
 
         {% endblock %}
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            {% block li_navbar_right %}
 
+            {% endblock %}
           </ul>
         </div>
       </nav>

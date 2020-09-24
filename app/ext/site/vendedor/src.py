@@ -129,6 +129,7 @@ class IntermediarioDeVenda(IValidadorDeRequisicao):
         self.rg_venda.registrar_venda(self.carrinho.itens, operador, self.db)
         self.db.session.commit()
         self.esvaziar_carrinho()
+        return True
 
     def esvaziar_carrinho(self):
         self.carrinho.itens = []
@@ -151,3 +152,7 @@ class RemoverItemForm(Form):
 class CancelarVendaForm(Form):
     cancel_senha = PasswordField('Código de Segurança',
       validators=[DataRequired()])
+
+
+class ConcluirVendaForm(Form):
+    submit = SubmitField('Concluir')

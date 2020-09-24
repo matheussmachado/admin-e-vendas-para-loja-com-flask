@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+ 
+    {% block ul %}
+
+        <li class="active">
+            <a href="{{ url_for('login.login') }}">Entrar</a>
+        </li>
+    {% endblock %}
+{% block content %}
+<form class="form-horizontal" method="post">
+  <fieldset>
+    
+    <div class="form-group">
+      <label for="credencial" class="col-md-2 control-label">Credencial: </label>
+      <div class="col-md-10">
+      	{{ form.csrf }}
+		{{ form.credencial }}
+        
+      </div>
+    </div>    
+  </fieldset>
+</form>
+
+{% if error %}
+	{{ error }}
+{% endif %}
+
+{% endblock %}

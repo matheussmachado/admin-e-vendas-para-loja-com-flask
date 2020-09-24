@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 {% block title %}Venda{% endblock %}
+
+{% block ul %}
+	<li class="active">
+    	<a>Operador: {{ operador }}</a>
+    </li>     
+{% endblock %}
+
+{% block li_navbar_right %}
+    <li>
+    	<a href="{{ url_for('login.logout') }}">Encerrar Sessão</a>
+    </li>     
+{% endblock %}
 {% block content %}
 <style>
 	.tableFixHead          { overflow-y: auto; height: 300px; }
@@ -21,11 +33,11 @@
 				<h4>Qtd.: </h4>
 			</div>
 			<div class="col-md-3">
-				<form method="post">
+				<form method="post" action="">
 					{{ registrar_form.csrf }}
-					{{ registrar_form.registrar_codigo(autofocus=true) }}
+					{{ registrar_form.registrar_codigo(autofocus=true, value="") }}
 					<br>{{ registrar_form.quantidade(style="width:70px;", value=1) }}
-					<input type="submit" value="enviar" style="width:135px;">
+					<input type="submit" value="enviar" style="width:134.5px;">
 				</form>
 			</div>
 			<div class="col-md-8">
@@ -63,7 +75,7 @@
 					    </tbody>
 					</table>
 				</div>
-				<a href="#" class="btn btn-warning">Remover Item</a>
+				<a onclick="focusMethod('#rm_modal', '#rm_codigo')" class="btn btn-warning" data-toggle="modal" data-target="#rm_modal">Remover Item</a>
 			</div>
 
 		</div>
@@ -72,9 +84,97 @@
 			<div class="col-md-4">
 				<br>
 				<h3>SUBTOTAL: R${{ formata_moeda(subtotal) }}</h3>
-				<a href="#" class="btn btn-success">Concluir</a>
-				<a href="#" class="btn btn-default">Cancelar</a>
+				<form method="post">
+					{{ concluir_form.submit(class="btn btn-success", style="width: 100px;") }}
+					
+					
+					<a onclick="focusMethod('#cancel_modal', '#cancel_senha')" class="btn btn-default" data-toggle="modal" data-target="#cancel_modal">Cancelar</a>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<br>
+			<div class="col-md-12">
+			{% with success = get_flashed_messages(category_filter=["success"]) %}
+				{% if success %}
+					{% for s in success %}
+						<div class="alert alert-dismissible alert-success">
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+							<h4><strong>{{ s }}</strong></h4>
+						</div>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+			{% with error = get_flashed_messages(category_filter=["error"]) %}
+				{% if error %}
+					{% for err in error %}
+						<div class="alert alert-dismissible alert-warning">
+							<h4><strong>Erro:</strong> {{ err }}</h4>
+						</div>
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
 			</div>
 		</div>
 	</div>
+
+<!--Modais!-->
+
+<div class="modal" id="cancel_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Cancelar Compra</h4>
+      </div>
+	  <form method="post">
+	      <div class="modal-body">
+	        	{{ cancel_form.csrf }}
+	        	Senha: {{ cancel_form.cancel_senha }}
+	        
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+	        <input type="submit" class="btn btn-primary" value='Confirmar'>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="rm_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Remover Item</h4>
+      </div>
+	  <form method="post">
+	      <div class="modal-body">
+	        	{{ rm_form.csrf }}
+	        	Codigo: {{ rm_form.rm_codigo }}
+	        	Senha: {{ rm_form.rm_senha }}	        
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Voltar</button>
+	        <input type="submit" class="btn btn-primary" value='Confirmar'>
+	      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+	focusMethod = function func(id_modal, id_input) {
+		$(id_modal).on('shown.bs.modal', function () {
+		    $(id_input).focus();
+		})
+	}
+	alert = function newAlert (type, message) {
+    $("#alert-area").append($("<div class='alert-message " + type + " fade in' data-alert><p> " + message + " </p></div>"));
+    $(".alert-message").delay(2000).fadeOut("slow", function () { $(this).remove(); });
+}
+newAlert('success', 'Oh yeah!');
+</script>
+
 {% endblock %}

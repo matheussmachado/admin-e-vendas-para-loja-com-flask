@@ -1,4 +1,6 @@
 *log*
+!login
+!login.html
 migrations/
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,flask
