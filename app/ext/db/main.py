@@ -18,14 +18,17 @@ class Produtos(db.Model):
 
 class Credenciais(db.Model):
     id = db.Column((db.Integer), primary_key=True, autoincrement=True)
-    nome_do_funcionario = db.Column((db.String(255)), nullable=False)
+    nome_do_funcionario = db.Column((db.String(55)), nullable=False)
     credencial = db.Column((db.Integer), unique=True, nullable=False)
-    cargo = db.Column((db.String(255)), nullable=False)
+    cargo = db.Column((db.String(25)), nullable=False)
+    permissao = db.Column((db.Boolean), nullable=False)
 
-    def __init__(self, nome_funcionario, credencial, cargo):
+    def __init__(self, nome_funcionario, credencial,
+        cargo, permissao):
         self.nome_funcionario = nome_funcionario
         self.credencial = credencial
         self.cargo = cargo
+        self.permissao = permissao
 
 
 class RegistroDeVendas(db.Model):

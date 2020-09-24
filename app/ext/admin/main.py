@@ -24,8 +24,12 @@ class ProdutoView(ModelView):
 
 
 class CredenciaisView(ModelView):
-    pass
-
+    form_args = {
+        'permissao': {
+            'label': 'Permissão'
+        }
+    }
+    column_labels = dict(permissao="Permissão")
 
 def datetime_format(view, value):
     return value.strftime('%d/%m/%Y --- %H:%M:%S')

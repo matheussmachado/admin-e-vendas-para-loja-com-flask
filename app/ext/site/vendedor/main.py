@@ -49,23 +49,26 @@ def vendedor():
             if cancel_form.validate():
                 credencial = Credenciais.query.filter_by(credencial=(cancel_form.cancel_senha.data)).first()
                 if credencial:
-                    venda.esvaziar_carrinho()
-                    context['itens'] = venda.carrinho.itens
+                    if credencial.permissao == True:
+                        venda.esvaziar_carrinho()
+                        context['itens'] = venda.carrinho.itens
+                    else:
+                        flash('Permissão inválida', 'error')
                 else:
                     flash('Senha inválida', 'error')
             else:
-                #context['cancel_form_error'] = 'Insira os dados corretamente'
                 flash('Insira os dados corretamente', 'error')
         elif rm_form.rm_senha.data:
             if rm_form.validate():
                 credencial = Credenciais.query.filter_by(credencial=(rm_form.rm_senha.data)).first()
                 if credencial:
-                    venda.carrinho.remover_item(rm_form.rm_codigo.data)
+                    if credencial.permissao == True:
+                        venda.carrinho.remover_item(rm_form.rm_codigo.data)
+                    else:
+                        flash('Permissão inválida', 'error')
                 else:
-                    #context['rm_form_error'] = 'Senha inválida'
                     flash('Senha inválida', 'error')
             else:
-                #context['rm_form_error'] = 'Insira os dados corretamente'
                 flash('Insira os dados corretamente', 'error')
         context['subtotal'] = venda.subtotal
         return render_template('vendedor.html', **context)
