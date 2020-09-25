@@ -20,7 +20,8 @@ class ProdutoView(ModelView):
       'validators':[
        required()]}}
     form_edit_rules = [
-     rules.FieldSet(('nome', 'valor', 'quantidade'))]
+        rules.FieldSet(('nome', 'valor', 'quantidade'))
+    ]
 
 
 class CredenciaisView(ModelView):
@@ -30,6 +31,8 @@ class CredenciaisView(ModelView):
         }
     }
     column_labels = dict(permissao="Permissão")
+
+
 
 def datetime_format(view, value):
     return value.strftime('%d/%m/%Y --- %H:%M:%S')

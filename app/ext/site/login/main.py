@@ -10,6 +10,7 @@ class LoginForm(Form):
 
 bp = Blueprint("login", __name__)
 
+@bp.route('/', methods=["GET", "POST"])
 @bp.route('/login/', methods=["GET", "POST"])
 def login():
 	error = None

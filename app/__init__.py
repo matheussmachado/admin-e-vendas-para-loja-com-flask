@@ -3,7 +3,6 @@ from app.ext import config
 from app.ext import db
 from app.ext import migrate
 from app.ext import admin
-from app.ext.site import home
 from app.ext.site import vendedor
 from app.ext.site import login
 
@@ -20,6 +19,5 @@ def create_app():
     migrate.init_app(app)
     admin.init_app(app)
     login.init_app(app)
-    home.init_app(app)
     vendedor.init_app(app)
     return app
