@@ -9,22 +9,25 @@
         </li>
     {% endblock %}
 {% block content %}
-<form class="form-horizontal" method="post">
-  <fieldset>
-    
-    <div class="form-group">
-      <label for="credencial" class="col-md-2 control-label">Credencial: </label>
-      <div class="col-md-10">
-      	{{ form.csrf }}
-		{{ form.credencial }}
-        
-      </div>
-    </div>    
-  </fieldset>
-</form>
-
-{% if error %}
-	{{ error }}
-{% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="well well-lg">
+                <form class="form-horizontal" method="post">
+                    <fieldset>
+                    
+                        <div class="form-group">
+                            <label for="credencial" class="col-md-4 control-label">Credencial: </label>
+                            <div>
+                                {{ form.csrf }}
+                                {{ form.credencial }}
+                          </div>
+                        </div>    
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

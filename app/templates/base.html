@@ -14,7 +14,7 @@
         <link href="/admin/static/bootstrap/bootstrap3/swatch/cosmo/bootstrap.min.css?v=3.3.5" rel="stylesheet">
         
         <link href="/admin/static/admin/css/bootstrap3/admin.css?v=1.1.1" rel="stylesheet">
-	<link href="/admin/static/admin/css/bootstrap3/submenu.css" rel="stylesheet">
+    <link href="/admin/static/admin/css/bootstrap3/submenu.css" rel="stylesheet">
         
         <style>
         body {
@@ -59,6 +59,24 @@
       {% endblock %}
 {% block content %}      
       
+{% endblock %}
+
+{% block flash_error %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+        {% with error = get_flashed_messages(category_filter=["error"]) %}
+            {% if error %}
+                {% for err in error %}
+                    <div class="alert alert-dismissible alert-warning">
+                        <h4><strong>Erro:</strong> {{ err }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </div>
+    </div>
+</div>
 {% endblock %}
     <script src="/admin/static/vendor/jquery.min.js?v=3.3.1" type="text/javascript"></script>
     <script src="/admin/static/bootstrap/bootstrap3/js/bootstrap.min.js?v=3.3.5" type="text/javascript"></script>

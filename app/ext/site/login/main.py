@@ -1,4 +1,4 @@
-from flask import Blueprint, request, redirect, render_template, url_for, session
+from flask import Blueprint, request, redirect, render_template, url_for, session, flash
 from wtforms import Form, PasswordField
 from wtforms.validators import DataRequired
 
@@ -29,8 +29,8 @@ def login():
 
 			return redirect(url_for('vendedor.vendedor'))
 		else:
-			error = 'Credencial inválida'
-			return render_template('login.html', form=login_form, error=error)
+			flash('Credencial inválida', 'error')
+			return render_template('login.html', form=login_form)
 	else:
 		error = "Insira o dado corretamente."
 		return render_template('login.html', form=form, error=error)
